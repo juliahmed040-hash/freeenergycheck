@@ -256,9 +256,113 @@
             transform: translateY(-5px) scale(1.1);
             box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6);
         }
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 25%, #3730a3 50%, #7c3aed 75%, #3b82f6 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .preloader-content {
+            text-align: center;
+            position: relative;
+        }
+        
+        .preloader-title {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffffff, #8b5cf6, #ec4899, #06b6d4);
+            background-size: 300% 300%;
+            animation: gradientShift 2s ease infinite, letterGlow 2s ease-in-out infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            letter-spacing: 0.2em;
+        }
+        
+        @keyframes letterGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
+                transform: scale(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.8));
+                transform: scale(1.05);
+            }
+        }
+        
+        .preloader-orbs {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+        }
+        
+        .preloader-orb {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            margin: -10px 0 0 -10px;
+        }
+        
+        .preloader-orb-1 {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            animation: orbitalRotate 1.5s linear infinite;
+        }
+        
+        .preloader-orb-2 {
+            background: linear-gradient(45deg, #06b6d4, #3b82f6);
+            animation: orbitalRotate 1.5s linear infinite reverse;
+            animation-delay: -0.5s;
+        }
+        
+        .preloader-orb-3 {
+            background: linear-gradient(45deg, #10b981, #059669);
+            animation: orbitalRotate 1.5s linear infinite;
+            animation-delay: -1s;
+        }
+        
+        .preloader-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            animation: float 2s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="cosmic-bg min-h-screen text-white font-sans overflow-x-hidden">
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <h1 class="preloader-title">DIVINE HELP</h1>
+            <div class="preloader-orbs">
+                <div class="preloader-orb preloader-orb-1"></div>
+                <div class="preloader-orb preloader-orb-2"></div>
+                <div class="preloader-orb preloader-orb-3"></div>
+                <div class="preloader-center">🔮</div>
+            </div>
+        </div>
+    </div>
     <!-- Animated Star Field -->
     <div class="star-field" id="starField"></div>
     
@@ -981,8 +1085,21 @@
             });
         });
 
+        // Preloader functionality
+        function hidePreloader() {
+            const preloader = document.getElementById('preloader');
+            preloader.classList.add('fade-out');
+            
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }
+
         // Initialize the page
         createStars();
+        
+        // Hide preloader after 2 seconds
+        setTimeout(hidePreloader, 2000);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9953b45c15f55959',t:'MTc2MTU4Mzk1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9953ba01f5395959',t:'MTc2MTU4NDE4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
