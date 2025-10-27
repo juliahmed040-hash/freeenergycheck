@@ -10,9 +10,64 @@
             box-sizing: border-box;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+        @keyframes colorfulTwinkle {
+            0% { 
+                opacity: 0.3; 
+                background: radial-gradient(circle, #3b82f6, #8b5cf6, transparent);
+                transform: scale(1) rotate(0deg);
+                box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+            }
+            25% { 
+                opacity: 0.7; 
+                background: radial-gradient(circle, #8b5cf6, #ec4899, transparent);
+                transform: scale(1.3) rotate(90deg);
+                box-shadow: 0 0 20px rgba(139, 92, 246, 0.7);
+            }
+            50% { 
+                opacity: 1; 
+                background: radial-gradient(circle, #ec4899, #06b6d4, transparent);
+                transform: scale(1.8) rotate(180deg);
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.9);
+            }
+            75% { 
+                opacity: 0.7; 
+                background: radial-gradient(circle, #06b6d4, #f59e0b, transparent);
+                transform: scale(1.3) rotate(270deg);
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.7);
+            }
+            100% { 
+                opacity: 0.3; 
+                background: radial-gradient(circle, #f59e0b, #3b82f6, transparent);
+                transform: scale(1) rotate(360deg);
+                box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+            }
+        }
+        
+        @keyframes starPulse {
+            0%, 100% { 
+                opacity: 0.2;
+                transform: scale(1);
+                filter: brightness(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.5);
+                filter: brightness(2);
+            }
+        }
+        
+        @keyframes starShimmer {
+            0% { 
+                background-position: -200% center;
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% { 
+                background-position: 200% center;
+                opacity: 0.4;
+            }
         }
         
         @keyframes float {
@@ -26,24 +81,293 @@
             100% { background-position: 0% 50%; }
         }
         
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         @keyframes glowPulse {
             0%, 100% { 
-                box-shadow: 0 0 20px rgba(147, 51, 234, 0.6), 0 0 40px rgba(236, 72, 153, 0.4), 0 0 60px rgba(59, 130, 246, 0.3);
+                box-shadow: 0 0 30px rgba(147, 51, 234, 0.8), 0 0 60px rgba(236, 72, 153, 0.6), 0 0 90px rgba(59, 130, 246, 0.4);
                 transform: scale(1);
             }
             50% { 
-                box-shadow: 0 0 30px rgba(147, 51, 234, 0.8), 0 0 60px rgba(236, 72, 153, 0.6), 0 0 90px rgba(59, 130, 246, 0.5);
+                box-shadow: 0 0 50px rgba(147, 51, 234, 1), 0 0 100px rgba(236, 72, 153, 0.8), 0 0 150px rgba(59, 130, 246, 0.6);
+                transform: scale(1.08);
+            }
+        }
+        
+        @keyframes instagramGlow {
+            0% { 
+                filter: drop-shadow(0 0 20px rgba(225, 48, 108, 1)) drop-shadow(0 0 40px rgba(245, 101, 101, 0.8)) drop-shadow(0 0 60px rgba(168, 85, 247, 0.6));
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(225, 48, 108, 0.5), 0 0 60px rgba(245, 101, 101, 0.3);
+            }
+            50% { 
+                filter: drop-shadow(0 0 35px rgba(225, 48, 108, 1)) drop-shadow(0 0 70px rgba(245, 101, 101, 1)) drop-shadow(0 0 105px rgba(168, 85, 247, 0.8));
+                transform: scale(1.15);
+                box-shadow: 0 0 50px rgba(225, 48, 108, 0.8), 0 0 100px rgba(245, 101, 101, 0.6);
+            }
+            100% { 
+                filter: drop-shadow(0 0 20px rgba(225, 48, 108, 1)) drop-shadow(0 0 40px rgba(245, 101, 101, 0.8)) drop-shadow(0 0 60px rgba(168, 85, 247, 0.6));
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(225, 48, 108, 0.5), 0 0 60px rgba(245, 101, 101, 0.3);
+            }
+        }
+        
+        @keyframes youtubeGlow {
+            0% { 
+                filter: drop-shadow(0 0 20px rgba(255, 0, 0, 1)) drop-shadow(0 0 40px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 60px rgba(255, 0, 0, 0.6));
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(255, 0, 0, 0.5), 0 0 60px rgba(255, 0, 0, 0.3);
+            }
+            50% { 
+                filter: drop-shadow(0 0 35px rgba(255, 0, 0, 1)) drop-shadow(0 0 70px rgba(255, 0, 0, 1)) drop-shadow(0 0 105px rgba(255, 0, 0, 0.8));
+                transform: scale(1.15);
+                box-shadow: 0 0 50px rgba(255, 0, 0, 0.8), 0 0 100px rgba(255, 0, 0, 0.6);
+            }
+            100% { 
+                filter: drop-shadow(0 0 20px rgba(255, 0, 0, 1)) drop-shadow(0 0 40px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 60px rgba(255, 0, 0, 0.6));
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(255, 0, 0, 0.5), 0 0 60px rgba(255, 0, 0, 0.3);
+            }
+        }
+        
+        @keyframes chatButtonGlow {
+            0% { 
+                box-shadow: 
+                    0 0 20px rgba(139, 92, 246, 0.6),
+                    0 0 40px rgba(236, 72, 153, 0.4),
+                    0 0 60px rgba(59, 130, 246, 0.3),
+                    inset 0 0 20px rgba(255, 255, 255, 0.1);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 30px rgba(139, 92, 246, 0.9),
+                    0 0 60px rgba(236, 72, 153, 0.7),
+                    0 0 90px rgba(59, 130, 246, 0.5),
+                    inset 0 0 30px rgba(255, 255, 255, 0.2);
                 transform: scale(1.05);
             }
+            100% { 
+                box-shadow: 
+                    0 0 20px rgba(139, 92, 246, 0.6),
+                    0 0 40px rgba(236, 72, 153, 0.4),
+                    0 0 60px rgba(59, 130, 246, 0.3),
+                    inset 0 0 20px rgba(255, 255, 255, 0.1);
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes cardSelect {
+            0% { transform: scale(1) rotateY(0deg); }
+            50% { transform: scale(1.2) rotateY(180deg); }
+            100% { transform: scale(1.1) rotateY(360deg); }
+        }
+        
+        @keyframes selectedCardFloat {
+            0%, 100% { transform: translateY(0px) scale(1.1); }
+            50% { transform: translateY(-10px) scale(1.15); }
+        }
+        
+        @keyframes cosmicSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        @keyframes orbitalSpin {
+            0% { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(147, 51, 234, 0.6), 0 0 40px rgba(236, 72, 153, 0.4);
+                opacity: 0.8;
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(147, 51, 234, 0.9), 0 0 80px rgba(236, 72, 153, 0.7);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
         }
         
         .star {
             position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            animation: colorfulTwinkle 4s infinite;
+            background: radial-gradient(circle, #ffffff, #8b5cf6, transparent);
+        }
+        
+        .star.large {
+            width: 6px;
+            height: 6px;
+            animation: starPulse 3s infinite;
+        }
+        
+        .star.medium {
+            width: 4px;
+            height: 4px;
+            animation: starShimmer 5s infinite;
+            background: linear-gradient(45deg, #ec4899, #06b6d4, #f59e0b, #8b5cf6);
+            background-size: 200% 200%;
+        }
+        
+        .star.sparkle {
             width: 2px;
             height: 2px;
-            background: white;
+            animation: colorfulTwinkle 2s infinite;
+            background: radial-gradient(circle, #ffffff, transparent);
+        }
+        
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background: 
+                radial-gradient(ellipse at top, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at left, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at right, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            animation: gradientFlow 15s ease infinite;
+        }
+        
+        .card-mystical {
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            border: 2px solid #ffd700;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-mystical::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            background-size: 200% 200%;
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+        }
+        
+        .selected-card {
+            animation: selectedCardFloat 2s ease-in-out infinite;
+            border: 3px solid #ffd700 !important;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.4) !important;
+        }
+        
+        .cosmic-loader {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+        }
+        
+        .cosmic-orb {
+            position: absolute;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            animation: twinkle 3s infinite;
+            top: 50%;
+            left: 50%;
+            margin: -10px 0 0 -10px;
+        }
+        
+        .cosmic-orb:nth-child(1) {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            animation: orbitalSpin 2s linear infinite;
+        }
+        
+        .cosmic-orb:nth-child(2) {
+            background: linear-gradient(45deg, #06b6d4, #3b82f6);
+            animation: orbitalSpin 2s linear infinite reverse;
+            animation-delay: -0.5s;
+        }
+        
+        .cosmic-orb:nth-child(3) {
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+            animation: orbitalSpin 2s linear infinite;
+            animation-delay: -1s;
+        }
+        
+        .cosmic-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            animation: cosmicSpin 3s ease-in-out infinite;
+        }
+        
+        .loading-dots {
+            display: inline-flex;
+            gap: 4px;
+        }
+        
+        .loading-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            animation: pulseGlow 1.5s ease-in-out infinite;
+        }
+        
+        .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        .enhanced-card {
+            background: linear-gradient(135deg, #1e1b4b, #312e81, #3730a3);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .enhanced-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899, #06b6d4, #f59e0b);
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .topic-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3));
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(236, 72, 153, 0.2);
         }
         
         .floating-symbol {
@@ -70,13 +394,12 @@
         }
         
         .divine-bg {
-            background: linear-gradient(135deg, #0c0c1e, #1a1a2e, #16213e, #0f3460);
+            background: linear-gradient(-45deg, #1e1b4b, #312e81, #3730a3, #1e40af, #1d4ed8, #2563eb, #7c3aed, #a855f7);
+            background-size: 400% 400%;
+            animation: gradientFlow 8s ease infinite;
         }
         
-        .card-mystical {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border: 2px solid #ffd700;
-        }
+
         
         .section-padding {
             padding-top: 80px;
@@ -91,10 +414,51 @@
             background: linear-gradient(45deg, rgba(147, 51, 234, 0.3), rgba(236, 72, 153, 0.3));
             border-radius: 8px;
         }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+            border-radius: 50%;
+        }
+        
+        .instagram-icon {
+            animation: instagramGlow 2s ease-in-out infinite alternate;
+        }
+        
+        .youtube-icon {
+            animation: youtubeGlow 2s ease-in-out infinite alternate;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.25);
+        }
+        
+        .chat-glow-button {
+            animation: chatButtonGlow 2.5s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chat-glow-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+        
+        .chat-glow-button:hover {
+            animation-duration: 1.5s;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="divine-bg min-h-full text-white font-sans overflow-x-hidden">
-    <!-- Twinkling Stars Background -->
+    <!-- Enhanced Twinkling Stars Background -->
+    <div class="star-field"></div>
     <div id="stars-container" class="fixed inset-0 pointer-events-none z-0"></div>
     
     <!-- Floating Mystical Symbols -->
@@ -108,7 +472,7 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold gradient-text">Divine Help</h1>
+                    <a href="#home" class="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-300">Divine Help</a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
@@ -174,31 +538,21 @@
                 <!-- Topic Selection -->
                 <div id="topic-selection" class="mb-12">
                     <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 gradient-text">Choose Your Reading Topic</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <button onclick="selectTopic('My Current Energy')" class="topic-btn group p-6 bg-gradient-to-br from-purple-600/80 to-purple-800/80 rounded-xl border-2 border-purple-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
-                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🔮</div>
-                            <div class="font-semibold text-lg mb-2">My Current Energy</div>
-                            <div class="text-sm text-purple-200">Understand your present spiritual state</div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <button onclick="selectTopic('My Current Energy')" class="topic-card enhanced-card group p-8 rounded-2xl transition-all duration-500 transform hover:scale-105">
+                            <div class="text-5xl mb-6 group-hover:scale-125 transition-transform duration-300">🔮</div>
+                            <div class="font-bold text-xl mb-3 gradient-text">My Current Energy</div>
+                            <div class="text-sm text-purple-200 leading-relaxed">Understand your present spiritual state and energy vibrations</div>
                         </button>
-                        <button onclick="selectTopic('My Person\'s Energy')" class="topic-btn group p-6 bg-gradient-to-br from-pink-600/80 to-pink-800/80 rounded-xl border-2 border-pink-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
-                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">💕</div>
-                            <div class="font-semibold text-lg mb-2">My Person's Energy</div>
-                            <div class="text-sm text-pink-200">Insights into someone special</div>
+                        <button onclick="selectTopic('Universe Guidance')" class="topic-card enhanced-card group p-8 rounded-2xl transition-all duration-500 transform hover:scale-105">
+                            <div class="text-5xl mb-6 group-hover:scale-125 transition-transform duration-300">🌌</div>
+                            <div class="font-bold text-xl mb-3 gradient-text">Universe Guidance</div>
+                            <div class="text-sm text-purple-200 leading-relaxed">Cosmic wisdom and universal messages for your path</div>
                         </button>
-                        <button onclick="selectTopic('Universe Guidance')" class="topic-btn group p-6 bg-gradient-to-br from-indigo-600/80 to-indigo-800/80 rounded-xl border-2 border-indigo-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
-                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🌌</div>
-                            <div class="font-semibold text-lg mb-2">Universe Guidance</div>
-                            <div class="text-sm text-indigo-200">Cosmic wisdom for your path</div>
-                        </button>
-                        <button onclick="selectTopic('Angel Guidance')" class="topic-btn group p-6 bg-gradient-to-br from-yellow-600/80 to-yellow-800/80 rounded-xl border-2 border-yellow-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
-                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">👼</div>
-                            <div class="font-semibold text-lg mb-2">Angel Guidance</div>
-                            <div class="text-sm text-yellow-200">Divine messages from above</div>
-                        </button>
-                        <button onclick="selectTopic('Career Guidance')" class="topic-btn group p-6 bg-gradient-to-br from-green-600/80 to-green-800/80 rounded-xl border-2 border-green-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
-                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">💼</div>
-                            <div class="font-semibold text-lg mb-2">Career Guidance</div>
-                            <div class="text-sm text-green-200">Professional path insights</div>
+                        <button onclick="selectTopic('Angel Guidance')" class="topic-card enhanced-card group p-8 rounded-2xl transition-all duration-500 transform hover:scale-105">
+                            <div class="text-5xl mb-6 group-hover:scale-125 transition-transform duration-300">👼</div>
+                            <div class="font-bold text-xl mb-3 gradient-text">Angel Guidance</div>
+                            <div class="text-sm text-purple-200 leading-relaxed">Divine messages and angelic protection from above</div>
                         </button>
                     </div>
                 </div>
@@ -206,18 +560,18 @@
                 <!-- Shuffle Method Selection -->
                 <div id="shuffle-selection" class="hidden mb-12">
                     <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 gradient-text">Choose Your Method</h3>
-                    <div class="flex flex-col md:flex-row gap-6 justify-center max-w-4xl mx-auto">
-                        <button onclick="selectShuffle('pick')" class="shuffle-btn group p-8 bg-gradient-to-br from-purple-700/80 to-purple-900/80 rounded-xl border-2 border-purple-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
-                            <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🎯</div>
-                            <div class="font-semibold text-xl mb-2">Intuitive Selection</div>
-                            <div class="text-purple-200 mb-4">Trust your inner wisdom</div>
-                            <div class="text-sm text-purple-300">Choose 3 mystical symbols that call to you</div>
+                    <div class="flex flex-col md:flex-row gap-8 justify-center max-w-5xl mx-auto">
+                        <button onclick="selectShuffle('pick')" class="topic-card enhanced-card group p-10 rounded-2xl transition-all duration-500 transform hover:scale-105 flex-1 max-w-md">
+                            <div class="text-6xl mb-6 group-hover:scale-125 transition-transform duration-300">🎯</div>
+                            <div class="font-bold text-2xl mb-3 gradient-text">Intuitive Selection</div>
+                            <div class="text-purple-200 mb-4 text-lg">Trust your inner wisdom</div>
+                            <div class="text-sm text-purple-300 leading-relaxed">Choose 3 mystical symbols that resonate with your soul's energy</div>
                         </button>
-                        <button onclick="selectShuffle('auto')" class="shuffle-btn group p-8 bg-gradient-to-br from-indigo-700/80 to-indigo-900/80 rounded-xl border-2 border-indigo-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
-                            <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🌀</div>
-                            <div class="font-semibold text-xl mb-2">Cosmic Selection</div>
-                            <div class="text-indigo-200 mb-4">Let the universe decide</div>
-                            <div class="text-sm text-indigo-300">Allow divine energy to guide the selection</div>
+                        <button onclick="selectShuffle('auto')" class="topic-card enhanced-card group p-10 rounded-2xl transition-all duration-500 transform hover:scale-105 flex-1 max-w-md">
+                            <div class="text-6xl mb-6 group-hover:scale-125 transition-transform duration-300">🌀</div>
+                            <div class="font-bold text-2xl mb-3 gradient-text">Cosmic Selection</div>
+                            <div class="text-purple-200 mb-4 text-lg">Let the universe decide</div>
+                            <div class="text-sm text-purple-300 leading-relaxed">Allow divine cosmic energy to guide the mystical selection</div>
                         </button>
                     </div>
                 </div>
@@ -231,6 +585,25 @@
                         <button id="reveal-btn" onclick="revealReading()" class="hidden glow-button px-8 py-4 text-white font-bold text-lg rounded-full transition-all duration-300">
                             Reveal Your Reading ✨
                         </button>
+                    </div>
+                </div>
+
+                <!-- Cosmic Loading Animation -->
+                <div id="cosmic-loading" class="hidden mb-12 text-center">
+                    <div class="p-12 bg-gradient-to-br from-purple-900/60 to-indigo-900/60 rounded-2xl border border-purple-500/50 backdrop-blur-sm">
+                        <div class="cosmic-loader mb-8">
+                            <div class="cosmic-orb"></div>
+                            <div class="cosmic-orb"></div>
+                            <div class="cosmic-orb"></div>
+                            <div class="cosmic-center">🔮</div>
+                        </div>
+                        <h3 class="text-2xl font-bold gradient-text mb-6">Preparing Your Divine Reading</h3>
+                        <div id="loading-message" class="text-xl text-purple-200 mb-4">Channeling cosmic energy...</div>
+                        <div class="loading-dots">
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -317,7 +690,7 @@
                         <div class="text-4xl mb-4">📱</div>
                         <h3 class="text-2xl font-bold text-yellow-300 mb-4">WhatsApp Consultation</h3>
                         <p class="text-purple-200 mb-6">Get instant access to personalized readings</p>
-                        <a href="https://wa.me/919395857987" target="_blank" rel="noopener noreferrer" class="glow-button inline-block px-6 py-3 text-white font-bold rounded-full transition-all duration-300">
+                        <a href="https://wa.me/919395857987" target="_blank" rel="noopener noreferrer" class="chat-glow-button glow-button inline-block px-6 py-3 text-white font-bold rounded-full transition-all duration-300">
                             Chat Now
                         </a>
                     </div>
@@ -325,7 +698,7 @@
                         <div class="text-4xl mb-4">🌟</div>
                         <h3 class="text-2xl font-bold text-yellow-300 mb-4">Premium Sessions</h3>
                         <p class="text-purple-200 mb-6">Book detailed one-on-one spiritual guidance</p>
-                        <a href="https://wa.me/919395857987" target="_blank" rel="noopener noreferrer" class="glow-button inline-block px-6 py-3 text-white font-bold rounded-full transition-all duration-300">
+                        <a href="https://wa.me/919395857987" target="_blank" rel="noopener noreferrer" class="chat-glow-button glow-button inline-block px-6 py-3 text-white font-bold rounded-full transition-all duration-300">
                             Book Session
                         </a>
                     </div>
@@ -353,14 +726,35 @@
                 </div>
                 <div class="text-center md:text-right">
                     <h4 class="text-lg font-semibold text-yellow-300 mb-4">Connect</h4>
-                    <p class="text-purple-200 mb-2">SPIRITUAL GIRL 888</p>
-                    <a href="https://wa.me/919395857987" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:text-white transition-colors">
+                    <p class="text-purple-200 mb-4">SPIRITUAL GIRL 888</p>
+                    <div class="flex justify-center md:justify-end space-x-6 mb-4">
+                        <a href="https://www.instagram.com/julius_ayaj19" target="_blank" rel="noopener noreferrer" class="social-icon instagram-icon">
+                            <svg class="w-8 h-8" viewBox="0 0 24 24">
+                                <defs>
+                                    <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#f09433;stop-opacity:1" />
+                                        <stop offset="25%" style="stop-color:#e6683c;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#dc2743;stop-opacity:1" />
+                                        <stop offset="75%" style="stop-color:#cc2366;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#bc1888;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#instagram-gradient)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@julius888" target="_blank" rel="noopener noreferrer" class="social-icon youtube-icon">
+                            <svg class="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <a href="https://wa.me/919395857987" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:text-white transition-colors text-sm">
                         WhatsApp: +91 93958 57987
                     </a>
                 </div>
             </div>
             <div class="text-center pt-8 border-t border-purple-500/30">
-                <p class="text-purple-300">&copy; 2024 Divine Help. All rights reserved. Part of SPIRITUAL GIRL 888 brand.</p>
+                <p class="text-purple-300">&copy; 2025 Divine Help. All rights reserved. Part of <a href="https://www.youtube.com/@julius888" target="_blank" rel="noopener noreferrer" class="text-yellow-300 hover:text-yellow-200 transition-colors underline">SPIRITUAL GIRL 888</a> brand.</p>
             </div>
         </div>
     </footer>
@@ -409,11 +803,6 @@
                 present: "The energy you're currently embodying and radiating to the universe",
                 future: "How your energy will evolve and what spiritual focus is needed"
             },
-            "My Person's Energy": {
-                past: "The energy your person has been carrying in their spiritual journey",
-                present: "Their current emotional and spiritual vibration",
-                future: "How their energy may shift and what it means for your connection"
-            },
             "Universe Guidance": {
                 past: "What the universe wants you to understand about your spiritual path",
                 present: "The cosmic message for your current life situation",
@@ -423,11 +812,6 @@
                 past: "What your guardian angels want you to know about recent experiences",
                 present: "The angelic message for your current spiritual needs",
                 future: "Divine guidance and protection for your spiritual journey ahead"
-            },
-            "Career Guidance": {
-                past: "Spiritual lessons from your professional journey and soul purpose",
-                present: "Your current career energy and divine opportunities",
-                future: "Guidance for aligning your work with your soul's mission"
             }
         };
 
@@ -438,11 +822,6 @@
                 "The energy surrounding you right now is one of awakening and renewal. Your spiritual frequency is elevating, creating a magnetic field that attracts positive opportunities and meaningful connections. This is a period where your intuitive abilities are heightened, and you're more sensitive to the subtle energies around you. The universe is supporting your growth by bringing lessons disguised as challenges, each one designed to strengthen your spiritual foundation. Your current energy signature is that of a seeker who is ready to embrace their power and step into their authentic self. There's a beautiful balance forming between your inner wisdom and outer expression. This energy phase is preparing you for significant breakthroughs in personal development. Trust the process, even when it feels uncomfortable, as your soul is expanding beyond its previous limitations. Your energy is becoming a beacon of light for others who are on similar spiritual paths.",
                 "Your energetic field is currently in a state of dynamic transformation, reflecting deep inner changes that are manifesting in your external reality. This is a powerful time for energy healing and spiritual cleansing, as old blockages are being released to make way for higher vibrational experiences. Your chakras are aligning more harmoniously, creating a stronger connection between your physical and spiritual selves. The energy you're radiating is attracting situations that will help you discover hidden aspects of your personality and talents. This is also a time of increased psychic sensitivity, where you may notice synchronicities and signs from the universe more frequently. Your current energy pattern suggests that you're ready to take on greater responsibilities in your spiritual growth. The universe is preparing you for a leadership role in your own life, where you'll need to trust your inner compass more than external validation. Embrace this energy shift as it's guiding you toward your highest timeline."
             ],
-            "My Person's Energy": [
-                "Your person is currently experiencing a significant shift in their emotional and spiritual landscape. Their energy is moving through a period of introspection and self-discovery, which may make them seem distant or preoccupied at times. This isn't about you – it's about their own inner journey and the need to understand themselves on a deeper level. Their heart chakra is opening to new possibilities, but they're also processing past wounds that need healing before they can fully embrace love. The energy around them suggests they're questioning old beliefs and patterns, particularly around relationships and commitment. This is actually a positive sign, as it means they're growing and evolving. Their soul is calling them to become more authentic and vulnerable, which can be scary but ultimately liberating. You may notice them being more sensitive or emotional during this time, as they're releasing layers of protection they've built up over the years. Trust that this process is necessary for their growth and will ultimately bring you closer together if you're meant to be.",
-                "The energy surrounding your person right now is complex and multifaceted, reflecting their inner struggle between fear and love, past and future. They're in a phase where their higher self is trying to communicate important messages about their life direction and relationships. Their energy field shows signs of confusion mixed with hope, as they're torn between what feels safe and what their heart truly desires. This person is experiencing a spiritual awakening that's challenging their previous understanding of love and connection. They may be having vivid dreams or experiencing synchronicities that are guiding them toward greater self-awareness. Their energy is also being influenced by family patterns and ancestral healing that needs to take place. This is a crucial time for them to break free from generational cycles and create new patterns based on love rather than fear. Be patient with them during this transformation, as they're learning to trust their intuition and make decisions from their heart rather than their head. Their energy will stabilize as they integrate these new insights.",
-                "Your person's energy is currently undergoing a beautiful but challenging transformation that's affecting every aspect of their life. They're being called to step into their power and embrace their authentic self, which requires releasing old versions of who they thought they should be. Their energy signature shows someone who is deeply caring but has been hurt in the past, making them cautious about opening their heart fully. Right now, they're in a healing phase where they're learning to love themselves unconditionally, which is essential before they can love another completely. The universe is sending them signs and opportunities to grow, but they need to be willing to step out of their comfort zone. Their energy is also connected to a strong desire for meaningful connection and purpose, but they're still figuring out how to balance their independence with their need for partnership. This person has a beautiful, sensitive soul that's learning to trust again. Their energy will become more stable and confident as they continue their healing journey and learn to embrace vulnerability as a strength rather than a weakness."
-            ],
             "Universe Guidance": [
                 "The universe is sending you a powerful message about trust and divine timing. Right now, you're being asked to surrender control and allow the natural flow of life to guide you toward your highest good. The cosmic energies are aligning to support your dreams, but you need to release attachment to how and when things will manifest. This is a time of spiritual testing, where your faith and patience are being strengthened. The universe is preparing you for something beautiful, but first, you must learn to trust the process even when you can't see the full picture. Your soul chose this particular journey for important reasons, and every experience is contributing to your spiritual evolution. The challenges you're facing are not punishments but opportunities for growth and expansion. The universe is asking you to raise your vibration through gratitude, compassion, and service to others. As you align with these higher frequencies, you'll find that doors begin to open and opportunities appear seemingly out of nowhere. Trust that you're exactly where you need to be, and everything is unfolding in perfect divine order for your highest good.",
                 "The cosmic forces are working in your favor, orchestrating a series of events that will lead to significant breakthroughs in your life. The universe is asking you to pay attention to the signs and synchronicities that are appearing with increasing frequency. These are not coincidences but divine messages guiding you toward your soul's purpose. Right now, you're in a powerful manifestation period where your thoughts and intentions have extra creative power. The universe is reminding you to be mindful of what you're focusing on, as it will manifest more quickly than usual. This is also a time of karmic completion, where past actions are coming full circle and creating opportunities for healing and growth. The cosmic energy is supporting you in releasing old patterns and embracing new possibilities that align with your authentic self. You're being called to step into a leadership role in your own life and possibly in service to others. The universe is preparing you for greater responsibilities and opportunities that will allow you to make a positive impact on the world. Trust in the divine plan and know that you're being guided every step of the way.",
@@ -452,11 +831,6 @@
                 "Your guardian angels are surrounding you with love and protection during this important phase of your life. They want you to know that you're never alone and that divine guidance is always available to you when you quiet your mind and listen with your heart. The angels are working behind the scenes to orchestrate miracles and blessings in your life, but they need your cooperation and trust. Right now, they're asking you to release fear and doubt, as these lower vibrations block their ability to help you fully. Your angels are particularly focused on helping you heal from past wounds and step into your power as a divine being having a human experience. They're sending you signs through numbers, feathers, songs, and sudden insights that provide comfort and direction. The angelic realm is also working to bring the right people and opportunities into your life at the perfect time. Your angels want you to know that your prayers have been heard and are being answered, though not always in the way you expect. They're asking you to maintain faith and continue taking inspired action toward your goals. The angels are preparing you for a period of increased abundance and joy, but first, you must align your thoughts and actions with love rather than fear.",
                 "The angelic realm is sending you powerful messages of hope and encouragement during this transformative time in your life. Your angels want you to understand that every challenge you're facing is an opportunity for spiritual growth and expansion. They're working tirelessly to help you see the bigger picture and understand the divine purpose behind your experiences. Right now, your guardian angels are particularly focused on helping you develop stronger intuition and psychic abilities. They're encouraging you to trust the subtle impressions and feelings you receive, as these are often angelic communications. The angels are also working to heal your heart from past disappointments and prepare you for the love and abundance that's coming into your life. They want you to know that you deserve all the good things you desire and that it's safe to open your heart to receive them. Your angels are asking you to be more gentle with yourself and practice self-compassion as you navigate this period of change. They're reminding you that you're a beloved child of the universe, worthy of love, respect, and happiness. The angelic realm is preparing to shower you with blessings, but you must be open to receiving them with gratitude and grace.",
                 "Your angels are communicating with you through a series of divine synchronicities and miraculous events that are designed to strengthen your faith and trust in the divine plan. They want you to know that you're being prepared for a special mission or purpose that will allow you to serve others and make a positive difference in the world. The angelic realm is working to clear away obstacles and negative influences that have been blocking your progress and happiness. Your guardian angels are particularly focused on helping you develop a stronger connection to your higher self and divine wisdom. They're encouraging you to spend more time in prayer, meditation, or other spiritual practices that help you align with heavenly frequencies. The angels are also working to bring healing to your family lineage and break generational patterns that no longer serve your highest good. They want you to know that you have the power to create positive change not just in your own life, but in the lives of those around you. Your angels are asking you to be a beacon of light and love in the world, sharing your gifts and talents with others who need inspiration and hope. Trust that the angels are guiding you toward your highest destiny and that every step you take in faith brings you closer to fulfilling your soul's purpose."
-            ],
-            "Career Guidance": [
-                "The universe is aligning opportunities in your professional life that will allow you to express your authentic self while serving your highest purpose. Your career path is undergoing a significant transformation that will ultimately lead to greater fulfillment and abundance. Right now, you're being called to trust your intuition when it comes to professional decisions, as your inner wisdom knows the direction that will bring you the most joy and success. The spiritual realm is working to connect you with mentors, collaborators, and opportunities that align with your soul's mission. This may require stepping out of your comfort zone and taking calculated risks, but the universe is supporting your courage and vision. Your professional life is meant to be an expression of your spiritual gifts and talents, not just a means of survival. The angels are guiding you toward work that feels meaningful and allows you to make a positive impact on others. This transition period may feel uncertain at times, but trust that you're being led toward something much better than what you're leaving behind. Your career is about to become a vehicle for your spiritual growth and service to humanity. Stay open to unexpected opportunities and be willing to follow your passion even if it doesn't make logical sense at first.",
-                "Your professional journey is entering a phase of accelerated growth and expansion, where your unique talents and abilities will be recognized and rewarded. The universe is preparing to open doors that have been closed and create pathways that didn't exist before. This is a time to focus on developing your skills and expertise while staying aligned with your core values and spiritual principles. Your career is meant to be a reflection of your soul's purpose, and the universe is working to bring these two aspects of your life into perfect harmony. Right now, you're being asked to release limiting beliefs about money, success, and your own worthiness to receive abundance. The spiritual realm wants you to understand that prosperity is your birthright when you're serving your highest purpose. Your professional life is about to become more creative, fulfilling, and financially rewarding as you align with your authentic path. This may involve changing careers, starting your own business, or finding new ways to express your creativity within your current role. Trust that the universe is supporting your professional evolution and that every experience is preparing you for greater success and impact. Your work is meant to be a source of joy and inspiration, not just obligation.",
-                "The divine forces are orchestrating a beautiful transformation in your professional life that will align your career with your soul's deepest calling. You're being guided toward work that not only provides financial security but also feeds your spirit and allows you to contribute meaningfully to the world. This is a powerful time for career manifestation, where your clear intentions and aligned actions can create rapid positive changes in your professional circumstances. The universe is asking you to think bigger and dream beyond your current limitations, as you're capable of achieving much more than you realize. Your career path is being divinely guided toward opportunities that will utilize your natural gifts and talents in service of something greater than yourself. This may involve developing new skills, pursuing additional education, or completely changing directions, but trust that these changes are leading you toward your highest professional destiny. The spiritual realm is also working to heal any past career disappointments or failures, transforming them into wisdom and strength for your future success. Your professional life is about to become a powerful vehicle for personal growth, spiritual development, and positive impact on others. Embrace this transformation with confidence, knowing that you're being supported by divine love and infinite possibilities."
             ]
         };
 
@@ -468,15 +842,30 @@
             return readings[readingIndex];
         }
 
-        // Initialize stars
+        // Initialize enhanced stars
         function createStars() {
             const container = document.getElementById('stars-container');
-            for (let i = 0; i < 150; i++) {
+            
+            // Create different types of stars
+            for (let i = 0; i < 300; i++) {
                 const star = document.createElement('div');
-                star.className = 'star';
+                const rand = Math.random();
+                
+                if (rand > 0.85) {
+                    star.className = 'star large';
+                } else if (rand > 0.7) {
+                    star.className = 'star medium';
+                } else if (rand > 0.5) {
+                    star.className = 'star sparkle';
+                } else {
+                    star.className = 'star';
+                }
+                
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDelay = Math.random() * 6 + 's';
+                star.style.animationDuration = (2 + Math.random() * 4) + 's';
+                
                 container.appendChild(star);
             }
         }
@@ -544,14 +933,19 @@
             const card = document.querySelector(`[data-index="${index}"]`);
             if (card.classList.contains('selected')) return;
             
-            card.classList.add('selected', 'border-4', 'border-yellow-400', 'shadow-lg', 'shadow-yellow-400/50');
-            selectedCards.push(index);
+            // Add selection animation
+            card.style.animation = 'cardSelect 0.6s ease-out';
             
-            document.getElementById('selected-count').textContent = selectedCards.length;
-            
-            if (selectedCards.length === 3) {
-                document.getElementById('reveal-btn').classList.remove('hidden');
-            }
+            setTimeout(() => {
+                card.classList.add('selected', 'selected-card');
+                selectedCards.push(index);
+                
+                document.getElementById('selected-count').textContent = selectedCards.length;
+                
+                if (selectedCards.length === 3) {
+                    document.getElementById('reveal-btn').classList.remove('hidden');
+                }
+            }, 300);
         }
 
         function autoShuffle() {
@@ -568,55 +962,81 @@
 
         function revealReading() {
             document.getElementById('card-selection').classList.add('hidden');
-            document.getElementById('reading-results').classList.remove('hidden');
             
-            // Set topic
-            document.querySelector('#selected-topic h4').textContent = selectedTopic;
+            // Show cosmic loading animation
+            document.getElementById('cosmic-loading').classList.remove('hidden');
             
-            // Generate reading
-            const cardsContainer = document.getElementById('cards-reading');
-            cardsContainer.innerHTML = '';
+            const loadingMessages = [
+                "Channeling cosmic energy...",
+                "Connecting with divine consciousness...",
+                "Aligning with universal wisdom...",
+                "Receiving angelic guidance...",
+                "Interpreting mystical symbols...",
+                "Preparing your sacred reading..."
+            ];
             
-            const positions = ['Past/Foundation', 'Present/Current', 'Future/Guidance'];
-            const interpretations = readingInterpretations[selectedTopic];
-            const interpretationKeys = ['past', 'present', 'future'];
+            let messageIndex = 0;
+            const messageInterval = setInterval(() => {
+                document.getElementById('loading-message').textContent = loadingMessages[messageIndex];
+                messageIndex = (messageIndex + 1) % loadingMessages.length;
+            }, 800);
             
-            selectedCards.forEach((cardIndex, i) => {
-                const card = tarotCards[cardIndex];
-                const cardElement = document.createElement('div');
-                cardElement.className = 'p-8 bg-gradient-to-br from-purple-800/50 to-indigo-800/50 rounded-xl border border-purple-500/50 backdrop-blur-sm transform hover:scale-105 transition-all duration-300';
-                cardElement.innerHTML = `
-                    <div class="text-center mb-6">
-                        <div class="w-28 h-40 mx-auto card-mystical rounded-xl mb-4 flex flex-col items-center justify-center text-2xl relative">
-                            <div class="text-xs text-yellow-300 font-bold mb-1">${card.number}</div>
-                            <div class="text-3xl mb-1">${mysticalSymbols[cardIndex % mysticalSymbols.length]}</div>
-                            <div class="text-xs text-yellow-300 font-bold">${card.element}</div>
+            // Show reading after 5 seconds
+            setTimeout(() => {
+                clearInterval(messageInterval);
+                document.getElementById('cosmic-loading').classList.add('hidden');
+                document.getElementById('reading-results').classList.remove('hidden');
+                
+                // Set topic
+                document.querySelector('#selected-topic h4').textContent = selectedTopic;
+                
+                // Generate reading
+                const cardsContainer = document.getElementById('cards-reading');
+                cardsContainer.innerHTML = '';
+                
+                const positions = ['Past/Foundation', 'Present/Current', 'Future/Guidance'];
+                const interpretations = readingInterpretations[selectedTopic];
+                const interpretationKeys = ['past', 'present', 'future'];
+                
+                selectedCards.forEach((cardIndex, i) => {
+                    const card = tarotCards[cardIndex];
+                    const cardElement = document.createElement('div');
+                    cardElement.className = 'enhanced-card p-8 rounded-2xl transform hover:scale-105 transition-all duration-500';
+                    cardElement.style.animation = `fadeInUp 0.6s ease-out ${i * 0.2}s both`;
+                    cardElement.innerHTML = `
+                        <div class="text-center mb-6">
+                            <div class="w-32 h-44 mx-auto card-mystical rounded-xl mb-4 flex flex-col items-center justify-center text-2xl relative">
+                                <div class="text-xs text-yellow-300 font-bold mb-1">${card.number}</div>
+                                <div class="text-4xl mb-1">${mysticalSymbols[cardIndex % mysticalSymbols.length]}</div>
+                                <div class="text-xs text-yellow-300 font-bold">${card.element}</div>
+                            </div>
+                            <h4 class="text-xl font-bold gradient-text">${positions[i]}</h4>
                         </div>
-                        <h4 class="text-xl font-bold gradient-text">${positions[i]}</h4>
-                    </div>
-                    <h5 class="text-2xl font-semibold text-purple-200 mb-2">${card.name}</h5>
-                    <p class="text-sm text-yellow-300 mb-3 font-semibold">${card.meaning}</p>
-                    <p class="text-purple-100 mb-4 text-sm leading-relaxed">${card.description}</p>
-                    <div class="border-t border-purple-400/30 pt-3">
-                        <p class="text-purple-200 italic text-sm leading-relaxed">${interpretations[interpretationKeys[i]]}</p>
+                        <h5 class="text-2xl font-semibold text-purple-200 mb-3">${card.name}</h5>
+                        <p class="text-sm text-yellow-300 mb-4 font-semibold">${card.meaning}</p>
+                        <p class="text-purple-100 mb-4 text-sm leading-relaxed">${card.description}</p>
+                        <div class="border-t border-purple-400/30 pt-4">
+                            <p class="text-purple-200 italic text-sm leading-relaxed">${interpretations[interpretationKeys[i]]}</p>
+                        </div>
+                    `;
+                    cardsContainer.appendChild(cardElement);
+                });
+                
+                // Add detailed reading section
+                const detailedReading = generateDetailedReading(selectedTopic, selectedCards);
+                const readingElement = document.createElement('div');
+                readingElement.className = 'enhanced-card mt-8 p-10 rounded-2xl';
+                readingElement.style.animation = 'fadeInUp 0.6s ease-out 0.8s both';
+                readingElement.innerHTML = `
+                    <h4 class="text-3xl font-bold gradient-text mb-8 text-center">Your Detailed Reading</h4>
+                    <div class="prose prose-purple max-w-none">
+                        <p class="text-purple-100 leading-relaxed text-lg">${detailedReading}</p>
                     </div>
                 `;
-                cardsContainer.appendChild(cardElement);
-            });
-            
-            // Add detailed reading section
-            const detailedReading = generateDetailedReading(selectedTopic, selectedCards);
-            const readingElement = document.createElement('div');
-            readingElement.className = 'mt-8 p-8 bg-gradient-to-br from-indigo-900/60 to-purple-900/60 rounded-xl border border-purple-500/50 backdrop-blur-sm';
-            readingElement.innerHTML = `
-                <h4 class="text-2xl font-bold gradient-text mb-6 text-center">Your Detailed Reading</h4>
-                <div class="prose prose-purple max-w-none">
-                    <p class="text-purple-100 leading-relaxed text-lg">${detailedReading}</p>
-                </div>
-            `;
-            cardsContainer.appendChild(readingElement);
-            
-            startTimer();
+                cardsContainer.appendChild(readingElement);
+                
+                startTimer();
+            }, 5000);
         }
 
         function startTimer() {
@@ -660,5 +1080,5 @@
         // Initialize the page
         createStars();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9953392d320a45af',t:'MTc2MTU3ODkwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9953816eb0c145af',t:'MTc2MTU4MTg2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
