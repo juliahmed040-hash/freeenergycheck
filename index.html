@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Help - Professional Spiritual Guidance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(147, 51, 234, 0.6), 0 0 40px rgba(236, 72, 153, 0.4), 0 0 60px rgba(59, 130, 246, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(147, 51, 234, 0.8), 0 0 60px rgba(236, 72, 153, 0.6), 0 0 90px rgba(59, 130, 246, 0.5);
+                transform: scale(1.05);
+            }
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        .floating-symbol {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff);
+            background-size: 400% 400%;
+            animation: gradientShift 4s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glow-button {
+            animation: glowPulse 2s ease-in-out infinite;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+        }
+        
+        .glow-button:hover {
+            animation-duration: 1s;
+        }
+        
+        .divine-bg {
+            background: linear-gradient(135deg, #0c0c1e, #1a1a2e, #16213e, #0f3460);
+        }
+        
+        .card-mystical {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: 2px solid #ffd700;
+        }
+        
+        .section-padding {
+            padding-top: 80px;
+            margin-top: -80px;
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: linear-gradient(45deg, rgba(147, 51, 234, 0.3), rgba(236, 72, 153, 0.3));
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="divine-bg min-h-full text-white font-sans overflow-x-hidden">
+    <!-- Twinkling Stars Background -->
+    <div id="stars-container" class="fixed inset-0 pointer-events-none z-0"></div>
+    
+    <!-- Floating Mystical Symbols -->
+    <div class="fixed top-10 left-10 floating-symbol opacity-20 pointer-events-none z-10 text-4xl">🔮</div>
+    <div class="fixed top-32 right-16 floating-symbol opacity-20 pointer-events-none z-10 text-4xl" style="animation-delay: -2s;">✨</div>
+    <div class="fixed bottom-20 left-20 floating-symbol opacity-20 pointer-events-none z-10 text-4xl" style="animation-delay: -4s;">🌙</div>
+    <div class="fixed top-1/2 right-10 floating-symbol opacity-20 pointer-events-none z-10 text-4xl" style="animation-delay: -6s;">⭐</div>
+    
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-purple-500/30">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold gradient-text">Divine Help</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link px-3 py-2 text-sm font-medium text-white hover:text-purple-300">Home</a>
+                        <a href="#readings" class="nav-link px-3 py-2 text-sm font-medium text-white hover:text-purple-300">Readings</a>
+                        <a href="#about" class="nav-link px-3 py-2 text-sm font-medium text-white hover:text-purple-300">About</a>
+                        <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium text-white hover:text-purple-300">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-purple-300 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-md">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="nav-link block px-3 py-2 text-base font-medium text-white hover:text-purple-300">Home</a>
+                <a href="#readings" class="nav-link block px-3 py-2 text-base font-medium text-white hover:text-purple-300">Readings</a>
+                <a href="#about" class="nav-link block px-3 py-2 text-base font-medium text-white hover:text-purple-300">About</a>
+                <a href="#contact" class="nav-link block px-3 py-2 text-base font-medium text-white hover:text-purple-300">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="relative z-20 min-h-full pt-16">
+        <!-- Hero Section -->
+        <section id="home" class="section-padding min-h-screen flex items-center justify-center">
+            <div class="text-center px-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6">
+                    Divine Help
+                </h1>
+                <p class="text-xl md:text-2xl text-purple-200 mb-8 leading-relaxed">
+                    Your Gateway to Spiritual Guidance and Mystical Wisdom
+                </p>
+                <p class="text-lg text-purple-300 mb-12 max-w-2xl mx-auto">
+                    Discover the ancient art of divination through our AI-powered spiritual readings. 
+                    Connect with the universe's energy and receive guidance for your life's journey.
+                </p>
+                <a href="#readings" class="glow-button inline-block px-8 py-4 text-white font-bold text-lg rounded-full transition-all duration-300">
+                    Start Your Free Reading ✨
+                </a>
+            </div>
+        </section>
+
+        <!-- Readings Section -->
+        <section id="readings" class="section-padding py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">
+                    Spiritual Readings
+                </h2>
+
+                <!-- Timer Display -->
+                <div id="timer-section" class="hidden text-center mb-8 p-6 bg-purple-900/30 rounded-xl border border-purple-500/50 backdrop-blur-sm">
+                    <p class="text-yellow-300 mb-3 text-lg">⏰ Next reading available in:</p>
+                    <div id="timer-display" class="text-3xl font-bold text-white"></div>
+                </div>
+
+                <!-- Topic Selection -->
+                <div id="topic-selection" class="mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 gradient-text">Choose Your Reading Topic</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <button onclick="selectTopic('My Current Energy')" class="topic-btn group p-6 bg-gradient-to-br from-purple-600/80 to-purple-800/80 rounded-xl border-2 border-purple-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🔮</div>
+                            <div class="font-semibold text-lg mb-2">My Current Energy</div>
+                            <div class="text-sm text-purple-200">Understand your present spiritual state</div>
+                        </button>
+                        <button onclick="selectTopic('My Person\'s Energy')" class="topic-btn group p-6 bg-gradient-to-br from-pink-600/80 to-pink-800/80 rounded-xl border-2 border-pink-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">💕</div>
+                            <div class="font-semibold text-lg mb-2">My Person's Energy</div>
+                            <div class="text-sm text-pink-200">Insights into someone special</div>
+                        </button>
+                        <button onclick="selectTopic('Universe Guidance')" class="topic-btn group p-6 bg-gradient-to-br from-indigo-600/80 to-indigo-800/80 rounded-xl border-2 border-indigo-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🌌</div>
+                            <div class="font-semibold text-lg mb-2">Universe Guidance</div>
+                            <div class="text-sm text-indigo-200">Cosmic wisdom for your path</div>
+                        </button>
+                        <button onclick="selectTopic('Angel Guidance')" class="topic-btn group p-6 bg-gradient-to-br from-yellow-600/80 to-yellow-800/80 rounded-xl border-2 border-yellow-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">👼</div>
+                            <div class="font-semibold text-lg mb-2">Angel Guidance</div>
+                            <div class="text-sm text-yellow-200">Divine messages from above</div>
+                        </button>
+                        <button onclick="selectTopic('Career Guidance')" class="topic-btn group p-6 bg-gradient-to-br from-green-600/80 to-green-800/80 rounded-xl border-2 border-green-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">💼</div>
+                            <div class="font-semibold text-lg mb-2">Career Guidance</div>
+                            <div class="text-sm text-green-200">Professional path insights</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Shuffle Method Selection -->
+                <div id="shuffle-selection" class="hidden mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 gradient-text">Choose Your Method</h3>
+                    <div class="flex flex-col md:flex-row gap-6 justify-center max-w-4xl mx-auto">
+                        <button onclick="selectShuffle('pick')" class="shuffle-btn group p-8 bg-gradient-to-br from-purple-700/80 to-purple-900/80 rounded-xl border-2 border-purple-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+                            <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🎯</div>
+                            <div class="font-semibold text-xl mb-2">Intuitive Selection</div>
+                            <div class="text-purple-200 mb-4">Trust your inner wisdom</div>
+                            <div class="text-sm text-purple-300">Choose 3 mystical symbols that call to you</div>
+                        </button>
+                        <button onclick="selectShuffle('auto')" class="shuffle-btn group p-8 bg-gradient-to-br from-indigo-700/80 to-indigo-900/80 rounded-xl border-2 border-indigo-400/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+                            <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🌀</div>
+                            <div class="font-semibold text-xl mb-2">Cosmic Selection</div>
+                            <div class="text-indigo-200 mb-4">Let the universe decide</div>
+                            <div class="text-sm text-indigo-300">Allow divine energy to guide the selection</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Symbol Selection -->
+                <div id="card-selection" class="hidden mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 gradient-text">Select 3 Mystical Symbols</h3>
+                    <div id="card-deck" class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 mb-6"></div>
+                    <div class="text-center">
+                        <p class="text-purple-200 mb-4 text-lg">Selected: <span id="selected-count" class="text-yellow-300 font-bold">0</span>/3</p>
+                        <button id="reveal-btn" onclick="revealReading()" class="hidden glow-button px-8 py-4 text-white font-bold text-lg rounded-full transition-all duration-300">
+                            Reveal Your Reading ✨
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Reading Results -->
+                <div id="reading-results" class="hidden mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 gradient-text">Your Spiritual Reading</h3>
+                    <div id="selected-topic" class="text-center mb-8 p-6 bg-purple-900/30 rounded-xl border border-purple-500/50 backdrop-blur-sm">
+                        <h4 class="text-2xl font-semibold gradient-text"></h4>
+                    </div>
+                    <div id="cards-reading" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"></div>
+                    
+                    <!-- Disclaimer -->
+                    <div class="text-center p-8 bg-gradient-to-r from-purple-900/50 to-indigo-900/50 rounded-xl border border-purple-500/50 backdrop-blur-sm mb-8">
+                        <p class="text-yellow-200 mb-6 text-lg">
+                            ⚠️ This is just for guidance, don't take it serious. This is AI generated guidance reading.
+                        </p>
+                        <p class="text-purple-200 mb-6 text-lg">For accurate reading you can book your personal session</p>
+                        <a href="https://wa.me/919395857987" target="_blank" rel="noopener noreferrer" class="glow-button inline-block px-8 py-4 text-white font-bold text-lg rounded-full transition-all duration-300">
+                            📱 Book Your Personal Paid Reading
+                        </a>
+                    </div>
+
+                    <div class="text-center">
+                        <button onclick="startNewReading()" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-bold text-lg rounded-full hover:from-purple-500 hover:to-purple-600 transition-all duration-300">
+                            New Reading (10 min wait)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding py-20 px-4 bg-black/20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">About the Founder</h2>
+                <div class="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-2xl border border-purple-500/50 backdrop-blur-sm p-8 md:p-12">
+                    <div class="text-center mb-8">
+                        <div class="text-6xl mb-6">🌟</div>
+                        <h3 class="text-3xl md:text-4xl font-bold gradient-text mb-4">SPIRITUAL GIRL 888</h3>
+                        <h4 class="text-2xl font-semibold text-purple-200 mb-6">Julius Ayaj</h4>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="p-6 bg-purple-800/30 rounded-xl border border-purple-500/30 text-center">
+                            <div class="text-4xl mb-4">⏰</div>
+                            <div class="text-2xl font-bold text-yellow-300 mb-2">4+ Years</div>
+                            <div class="text-purple-200">Professional Experience</div>
+                        </div>
+                        <div class="p-6 bg-purple-800/30 rounded-xl border border-purple-500/30 text-center">
+                            <div class="text-4xl mb-4">👥</div>
+                            <div class="text-2xl font-bold text-yellow-300 mb-2">3000+</div>
+                            <div class="text-purple-200">Successful Sessions</div>
+                        </div>
+                        <div class="p-6 bg-purple-800/30 rounded-xl border border-purple-500/30 text-center">
+                            <div class="text-4xl mb-4">✨</div>
+                            <div class="text-2xl font-bold text-yellow-300 mb-2">Multi-Talented</div>
+                            <div class="text-purple-200">Healer & Influencer</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-xl text-purple-200 mb-6">
+                            Spiritual Healer • Tarot Reader • Influencer
+                        </p>
+                        <p class="text-lg text-purple-300 leading-relaxed max-w-3xl mx-auto">
+                            Divine Help is an integrated part of the SPIRITUAL GIRL 888 brand, bringing you authentic spiritual guidance and healing. 
+                            With years of experience and thousands of successful sessions, Julius Ayaj combines ancient wisdom with modern insights 
+                            to provide transformative spiritual experiences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding py-20 px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">Get in Touch</h2>
+                <p class="text-xl text-purple-200 mb-12 leading-relaxed">
+                    Ready for a personalized spiritual journey? Connect with us for professional readings and guidance.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-8 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl border border-purple-500/50 backdrop-blur-sm">
+                        <div class="text-4xl mb-4">📱</div>
+                        <h3 class="text-2xl font-bold text-yellow-300 mb-4">WhatsApp Consultation</h3>
+                        <p class="text-purple-200 mb-6">Get instant access to personalized readings</p>
+                        <a href="https://wa.me/919395857987" target="_blank" rel="noopener noreferrer" class="glow-button inline-block px-6 py-3 text-white font-bold rounded-full transition-all duration-300">
+                            Chat Now
+                        </a>
+                    </div>
+                    <div class="p-8 bg-gradient-to-br from-pink-900/30 to-purple-900/30 rounded-xl border border-purple-500/50 backdrop-blur-sm">
+                        <div class="text-4xl mb-4">🌟</div>
+                        <h3 class="text-2xl font-bold text-yellow-300 mb-4">Premium Sessions</h3>
+                        <p class="text-purple-200 mb-6">Book detailed one-on-one spiritual guidance</p>
+                        <a href="https://wa.me/919395857987" target="_blank" rel="noopener noreferrer" class="glow-button inline-block px-6 py-3 text-white font-bold rounded-full transition-all duration-300">
+                            Book Session
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black/80 border-t border-purple-500/30 py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-bold gradient-text mb-4">Divine Help</h3>
+                    <p class="text-purple-200">Your trusted source for spiritual guidance and mystical wisdom.</p>
+                </div>
+                <div class="text-center">
+                    <h4 class="text-lg font-semibold text-yellow-300 mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="#home" class="block text-purple-200 hover:text-white transition-colors">Home</a>
+                        <a href="#readings" class="block text-purple-200 hover:text-white transition-colors">Readings</a>
+                        <a href="#about" class="block text-purple-200 hover:text-white transition-colors">About</a>
+                        <a href="#contact" class="block text-purple-200 hover:text-white transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="text-center md:text-right">
+                    <h4 class="text-lg font-semibold text-yellow-300 mb-4">Connect</h4>
+                    <p class="text-purple-200 mb-2">SPIRITUAL GIRL 888</p>
+                    <a href="https://wa.me/919395857987" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:text-white transition-colors">
+                        WhatsApp: +91 93958 57987
+                    </a>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-purple-500/30">
+                <p class="text-purple-300">&copy; 2024 Divine Help. All rights reserved. Part of SPIRITUAL GIRL 888 brand.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedTopic = '';
+        let shuffleMethod = '';
+        let selectedCards = [];
+        let timerInterval = null;
+        let canRead = true;
+
+        // Mystical symbols for selection
+        const mysticalSymbols = ['🔮', '✨', '🌙', '⭐', '🌟', '💫', '🌈', '🦋', '🕊️', '🌸', '🍀', '💎', '🔥', '💧', '🌪️', '⚡', '🌺', '🌻', '🌷', '🌹', '🦄', '🐉'];
+
+        // Spiritual cards data
+        const spiritualCards = [
+            { name: "The Mystic", meaning: "Deep intuition and spiritual awakening" },
+            { name: "The Healer", meaning: "Restoration and emotional healing" },
+            { name: "The Guardian", meaning: "Protection and divine guidance" },
+            { name: "The Seeker", meaning: "Quest for truth and enlightenment" },
+            { name: "The Sage", meaning: "Ancient wisdom and knowledge" },
+            { name: "The Phoenix", meaning: "Rebirth and transformation" },
+            { name: "The Oracle", meaning: "Prophetic vision and foresight" },
+            { name: "The Warrior", meaning: "Courage and inner strength" },
+            { name: "The Dreamer", meaning: "Imagination and creative potential" },
+            { name: "The Bridge", meaning: "Connection between worlds" },
+            { name: "The Light Bearer", meaning: "Hope and illumination" },
+            { name: "The Earth Mother", meaning: "Nurturing and abundance" },
+            { name: "The Storm Caller", meaning: "Change and powerful energy" },
+            { name: "The Peace Keeper", meaning: "Harmony and balance" },
+            { name: "The Time Weaver", meaning: "Destiny and life cycles" },
+            { name: "The Soul Mirror", meaning: "Self-reflection and truth" },
+            { name: "The Star Walker", meaning: "Cosmic connection and purpose" },
+            { name: "The Heart Opener", meaning: "Love and emotional freedom" },
+            { name: "The Mind Expander", meaning: "Mental clarity and growth" },
+            { name: "The Spirit Guide", meaning: "Divine assistance and direction" },
+            { name: "The Energy Shifter", meaning: "Transformation and renewal" },
+            { name: "The Sacred Flame", meaning: "Passion and spiritual fire" }
+        ];
+
+        // Reading interpretations for different topics
+        const readingInterpretations = {
+            "My Current Energy": {
+                past: "Your recent energy patterns and what has shaped your current spiritual state",
+                present: "The energy you're currently embodying and radiating to the universe",
+                future: "How your energy will evolve and what spiritual focus is needed"
+            },
+            "My Person's Energy": {
+                past: "The energy your person has been carrying in their spiritual journey",
+                present: "Their current emotional and spiritual vibration",
+                future: "How their energy may shift and what it means for your connection"
+            },
+            "Universe Guidance": {
+                past: "What the universe wants you to understand about your spiritual path",
+                present: "The cosmic message for your current life situation",
+                future: "Universal guidance for your soul's evolution and purpose"
+            },
+            "Angel Guidance": {
+                past: "What your guardian angels want you to know about recent experiences",
+                present: "The angelic message for your current spiritual needs",
+                future: "Divine guidance and protection for your spiritual journey ahead"
+            },
+            "Career Guidance": {
+                past: "Spiritual lessons from your professional journey and soul purpose",
+                present: "Your current career energy and divine opportunities",
+                future: "Guidance for aligning your work with your soul's mission"
+            }
+        };
+
+        // Initialize stars
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(star);
+            }
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        function selectTopic(topic) {
+            if (!canRead) return;
+            
+            selectedTopic = topic;
+            document.getElementById('topic-selection').classList.add('hidden');
+            document.getElementById('shuffle-selection').classList.remove('hidden');
+        }
+
+        function selectShuffle(method) {
+            shuffleMethod = method;
+            document.getElementById('shuffle-selection').classList.add('hidden');
+            
+            if (method === 'pick') {
+                showCardSelection();
+            } else {
+                autoShuffle();
+            }
+        }
+
+        function showCardSelection() {
+            document.getElementById('card-selection').classList.remove('hidden');
+            const deck = document.getElementById('card-deck');
+            deck.innerHTML = '';
+            
+            // Create 22 mystical symbols for selection
+            for (let i = 0; i < 22; i++) {
+                const card = document.createElement('div');
+                card.className = 'card-mystical w-20 h-28 rounded-xl cursor-pointer hover:scale-110 transition-all duration-300 flex items-center justify-center text-3xl backdrop-blur-sm';
+                card.innerHTML = mysticalSymbols[i % mysticalSymbols.length];
+                card.onclick = () => selectCard(i);
+                card.dataset.index = i;
+                deck.appendChild(card);
+            }
+        }
+
+        function selectCard(index) {
+            if (selectedCards.length >= 3) return;
+            
+            const card = document.querySelector(`[data-index="${index}"]`);
+            if (card.classList.contains('selected')) return;
+            
+            card.classList.add('selected', 'border-4', 'border-yellow-400', 'shadow-lg', 'shadow-yellow-400/50');
+            selectedCards.push(index);
+            
+            document.getElementById('selected-count').textContent = selectedCards.length;
+            
+            if (selectedCards.length === 3) {
+                document.getElementById('reveal-btn').classList.remove('hidden');
+            }
+        }
+
+        function autoShuffle() {
+            selectedCards = [];
+            for (let i = 0; i < 3; i++) {
+                let randomIndex;
+                do {
+                    randomIndex = Math.floor(Math.random() * spiritualCards.length);
+                } while (selectedCards.includes(randomIndex));
+                selectedCards.push(randomIndex);
+            }
+            revealReading();
+        }
+
+        function revealReading() {
+            document.getElementById('card-selection').classList.add('hidden');
+            document.getElementById('reading-results').classList.remove('hidden');
+            
+            // Set topic
+            document.querySelector('#selected-topic h4').textContent = selectedTopic;
+            
+            // Generate reading
+            const cardsContainer = document.getElementById('cards-reading');
+            cardsContainer.innerHTML = '';
+            
+            const positions = ['Past/Foundation', 'Present/Current', 'Future/Guidance'];
+            const interpretations = readingInterpretations[selectedTopic];
+            const interpretationKeys = ['past', 'present', 'future'];
+            
+            selectedCards.forEach((cardIndex, i) => {
+                const card = spiritualCards[cardIndex];
+                const cardElement = document.createElement('div');
+                cardElement.className = 'p-8 bg-gradient-to-br from-purple-800/50 to-indigo-800/50 rounded-xl border border-purple-500/50 backdrop-blur-sm transform hover:scale-105 transition-all duration-300';
+                cardElement.innerHTML = `
+                    <div class="text-center mb-6">
+                        <div class="w-24 h-36 mx-auto card-mystical rounded-xl mb-4 flex items-center justify-center text-4xl">
+                            ${mysticalSymbols[cardIndex % mysticalSymbols.length]}
+                        </div>
+                        <h4 class="text-xl font-bold gradient-text">${positions[i]}</h4>
+                    </div>
+                    <h5 class="text-2xl font-semibold text-purple-200 mb-3">${card.name}</h5>
+                    <p class="text-purple-100 mb-4 text-lg">${card.meaning}</p>
+                    <p class="text-purple-200 italic leading-relaxed">${interpretations[interpretationKeys[i]]}</p>
+                `;
+                cardsContainer.appendChild(cardElement);
+            });
+            
+            startTimer();
+        }
+
+        function startTimer() {
+            canRead = false;
+            let timeLeft = 600; // 10 minutes in seconds
+            
+            document.getElementById('timer-section').classList.remove('hidden');
+            
+            timerInterval = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                document.getElementById('timer-display').textContent = 
+                    `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    canRead = true;
+                    document.getElementById('timer-section').classList.add('hidden');
+                }
+                timeLeft--;
+            }, 1000);
+        }
+
+        function startNewReading() {
+            if (!canRead) return;
+            
+            selectedTopic = '';
+            shuffleMethod = '';
+            selectedCards = [];
+            
+            document.getElementById('reading-results').classList.add('hidden');
+            document.getElementById('topic-selection').classList.remove('hidden');
+            
+            // Scroll to readings section
+            document.getElementById('readings').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Initialize the page
+        createStars();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9953225793475959',t:'MTc2MTU3Nzk3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
